@@ -1,11 +1,11 @@
-function randomNumber(className) {
+async function randomNumber(className) {
     let numberEs = document.getElementsByClassName(className);
-    Array.from(numberEs).forEach(async e => {
-        await new Promise(() => {
+    for (let e of numberEs) {
+        await new Promise(resolve => {
             setTimeout(() => {
                 e.innerHTML = Math.floor(Math.random() * 10);
+                resolve("done")
             }, 2000);
         });
-        console.log(1);
-    });
+    }
 }
